@@ -5205,7 +5205,7 @@ if World1 or World2 then
       HyperCahaya(CFrame.new(2947.556884765625, 2281.630615234375, -7213.54931640625))
         end)
         
-        RaceV4:Button("Đền chổ thức tỉnh V4",function()
+        RaceV4:Button("Di Chuyển Đến Đền V4",function()
       Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875)
         end)
         
@@ -5216,6 +5216,13 @@ if World1 or World2 then
     RaceV4:Button("Đến npc bán bánh răng (Must Be in Temple Of Time!)",function()
       HyperCahaya(CFrame.new(28981.552734375, 14888.4267578125, -120.245849609375))
     end)
+    
+    RaceV4:Button("Teleport to Clock", function()
+        Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875)
+        Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875)
+        wait(.1)
+        topos(CFrame.new(29551.9941, 15069.002, -85.5179291, 0.603725016, 4.74354529e-08, -0.797192633, -3.64676893e-08, 1, 3.18856408e-08, 0.797192633, 9.82161463e-09, 0.603725016))
+     end)
        
        RaceV4:Button("Bẻ khoá cần gạt.", function()
     venyx:Notify("Unlocked")
@@ -5333,7 +5340,7 @@ if World1 or World2 then
       end
       end)
     
-      RaceV4:Toggle("Hoàn thành hết ải",false,function(v)
+      RaceV4:Toggle("Hoàn Thành Ải",false,function(v)
       _G.AutoQuestRace = v
       StopTween(_G.AutoQuestRace)
       end)
@@ -5472,7 +5479,7 @@ if World1 or World2 then
     end)
     end)
     
-    RaceV4:Toggle("Giết người chơi trong ải!",false,function(value)
+    RaceV4:Toggle("Giết Người Chơi Trong Ải",false,function(value)
         _G.KillAfterTrials = value
         StopTween(_G.KillAfterTrials)
     end)
