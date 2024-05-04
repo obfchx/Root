@@ -7562,13 +7562,13 @@ UseCode("TheGreatAce")
 	end)
 end
     
-    O:Toggle("Tự Nâng Chỉ Số",_G.Auto_Stats_Kai,function(value)
-        _G.Auto_Stats_Kai = value
+    O:Toggle("Tự Nâng Chỉ Số",_G.Auto_Stats_Kait,function(value)
+        _G.Auto_Stats_Kait = value
     end)
 
        spawn(function()
         while wait() do
-            if _G.Auto_Stats_Kai then
+            if _G.Auto_Stats_Kait then
                 local args = {
                     [1] = "AddPoint",
                     [2] = "Melee",
@@ -7581,7 +7581,7 @@ end
     
     spawn(function()
         while wait() do
-            if _G.Auto_Stats_Kai then
+            if _G.Auto_Stats_Kait then
                 local args = {
                     [1] = "AddPoint",
                     [2] = "Defense",
@@ -7594,7 +7594,7 @@ end
     
     spawn(function()
         while wait() do
-            if _G.Auto_Stats_Kai then
+            if _G.Auto_Stats_Kait then
                 local args = {
                     [1] = "AddPoint",
                     [2] = "Sword",
@@ -7606,7 +7606,7 @@ end
     
         spawn(function()
             while wait() do
-                if _G.Auto_Stats_Kai then
+                if _G.Auto_Stats_Kait then
                     local args = {
                         [1] = "AddPoint",
                         [2] = "Demon Fruit",
