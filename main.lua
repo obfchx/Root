@@ -2624,8 +2624,70 @@ end)
             end
         end
     end)
+    
+Main:AddToggle("1 Nhấn Max Cấp",false,function(value)
+       _G.AutoFarm = value
+       _G.SelectWeapon = "Combat"
+       _G.Auto_Stats_Kaitun = value
+       _G.AutoSuperhuman = value
+       _G.AutoSecondSea = value
+       _G.AutoThirdSea = value
+       _G.AutoBuyLegendarySword = value
+       _G.AutoStoreFruit = value
+       _G.Random_Auto = value
+       _G.BuyAllAib = value
+       _G.BuyAllSword = value
+      StopTween(_G.AutoFarm)
+    end)
+    
+    spawn(function()
+        while wait() do
+            if _G.BuyAllSword then
+                pcall(function()
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Cutlass")
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Katana")
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Iron Mace")
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Duel Katana")
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Triple Katana")
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Pipe")
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Bisento")
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Dual-Headed Blade")
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Soul Cane")
+                    if _G.BuyHop then
+                        wait(10)
+                        Hop()
+                    end
+                end)
+            end 
+        end
+    end)
+    
+    spawn(function()
+        while wait() do
+            if _G.BuyAllAib then
+                pcall(function()
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("KenTalk","Buy")
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("MuaHaki","Geppo")
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("MuaHaki","Buso")
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("MuaHaki","Soru")
+                    if _G.HopBuy then
+                        wait(10)
+                        Hop()
+                    end
+                end)
+            end 
+        end
+    end)
+    
+if World1 then
+	tableMon = {"Bandit","Monkey","Gorilla","Pirate","Brute","Desert Bandit","Desert Officer","Snow Bandit","Snowman","Chief Petty Officer","Sky Bandit","Dark Master","Toga Warrior","Gladiator","Military Soldier","Military Spy","Fishman Warrior","Fishman Commando","God's Guard","Shanda","Royal Squad","Royal Soldier","Galley Pirate","Galley Captain"}
+elseif World2 then
+	tableMon = {"Raider","Mercenary","Swan Pirate","Factory Staff","Marine Lieutenant","Marine Captain","Zombie","Vampire","Snow Trooper","Winter Warrior","Lab Subordinate","Horned Warrior","Magma Ninja","Lava Pirate","Ship Deckhand","Ship Engineer","Ship Steward","Ship Officer","Arctic Warrior","Snow Lurker","Sea Soldier","Water Fighter"}
+elseif World3 then
+	tableMon = {"Pirate Millionaire","Dragon Crew Warrior","Dragon Crew Archer","Female Islander","Giant Islander","Marine Commodore","Marine Rear Admiral","Fishman Raider","Fishman Captain","Forest Pirate","Mythological Pirate","Jungle Pirate","Musketeer Pirate","Reborn Skeleton","Living Zombie","Demonic Soul","Posessed Mummy","Peanut Scout","Peanut President","Ice Cream Chef","Ice Cream Commander","Cookie Crafter","Cake Guard","Baking Staff","Head Baker","Cocoa Warrior","Chocolate Bar Battler","Sweet Thief","Candy Rebel","Candy Pirate","Snow Demon","Isle Outlaw","Island Boy","Sun-kissed Warrior","Isle Champion"}
+end
 
-   Main:Toggle("Cày quái gần ",_G.AutoFarmNearest,function(value)
+   Main:Toggle("Đánh quái gần",_G.AutoFarmNearest,function(value)
    _G.AutoFarmNearest = value
    StopTween(_G.AutoFarmNearest)
  end)
@@ -5201,7 +5263,7 @@ if World1 or World2 then
     if World3 then
         RaceV4:Seperator("Race V4")
         
-    RaceV4:Button("Đến đỉnh cây",function()
+    RaceV4:Button("Đến Đỉnh Cây",function()
       HyperCahaya(CFrame.new(2947.556884765625, 2281.630615234375, -7213.54931640625))
         end)
         
@@ -5209,22 +5271,22 @@ if World1 or World2 then
       Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875)
         end)
         
-    RaceV4:Button("Đến cần gạt",function()
+    RaceV4:Button("Đến Cần Gạt",function()
       HyperCahaya(CFrame.new(28575.181640625, 14936.6279296875, 72.31636810302734))
     end)
     
-    RaceV4:Button("Đến npc bán bánh răng (Must Be in Temple Of Time!)",function()
+    RaceV4:Button("Đến NPC Bán bánh Răng (Must Be in Temple Of Time!)",function()
       HyperCahaya(CFrame.new(28981.552734375, 14888.4267578125, -120.245849609375))
     end)
     
-    RaceV4:Button("Teleport to Clock", function()
+    RaceV4:Button("Bay Đến Đồng Hồ", function()
         Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875)
         Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875)
         wait(.1)
         topos(CFrame.new(29551.9941, 15069.002, -85.5179291, 0.603725016, 4.74354529e-08, -0.797192633, -3.64676893e-08, 1, 3.18856408e-08, 0.797192633, 9.82161463e-09, 0.603725016))
      end)
        
-       RaceV4:Button("Bẻ khoá cần gạt.", function()
+       RaceV4:Button("Mở Khoá Cần Gạt", function()
     venyx:Notify("Unlocked")
     if game:GetService("Workspace").Map["Temple of Time"].Lever.Prompt:FindFirstChild("ProximityPrompt") then
         game:GetService("Workspace").Map["Temple of Time"].Lever.Prompt:FindFirstChild("ProximityPrompt"):Remove()
@@ -6609,6 +6671,28 @@ R:Button("Vào tập kích",function()
     end
 end)
 
+R:Toggle("Giết Quái",_G.concubu ,function(vu)
+_G.concubu = vu
+end)
+
+spawn(function()
+while wait() do
+    if _G.concubu then
+        for i,v in pairs(game.Workspace.Enemies:GetDescendants()) do
+            if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                pcall(function()
+                    repeat wait(.1)
+                        v.Humanoid.Health = 0
+                        v.HumanoidRootPart.CanCollide = false
+                        sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+                    until not _G.concubu  or not v.Parent or v.Humanoid.Health <= 0
+                end)
+            end
+        end
+    end
+end
+end)
+
 R:Toggle("Qua đảo",_G.Auto_Dungeon,function(value)
     _G.Auto_Dungeon = value
     StopTween(_G.Auto_Dungeon)
@@ -6647,28 +6731,6 @@ spawn(function()
             end
         end
     end)
-end)
-
-R:Toggle("Giết Quái",_G.concubu ,function(vu)
-_G.concubu = vu
-end)
-
-spawn(function()
-while wait() do
-    if _G.concubu then
-        for i,v in pairs(game.Workspace.Enemies:GetDescendants()) do
-            if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                pcall(function()
-                    repeat wait(.1)
-                        v.Humanoid.Health = 0
-                        v.HumanoidRootPart.CanCollide = false
-                        sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                    until not _G.concubu  or not v.Parent or v.Humanoid.Health <= 0
-                end)
-            end
-        end
-    end
-end
 end)
 
 
