@@ -2625,7 +2625,7 @@ end)
         end
     end)
     
-Main:Toggle("1 Nhấn Max Cấp",false,function(value)
+   Main:Toggle("1 Nhấn Max Cấp",function(value)
        _G.AutoFarm = value
        _G.SelectWeapon = "Combat"
        _G.Auto_Stats_Kaitun = value
