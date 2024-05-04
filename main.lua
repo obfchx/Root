@@ -13,6 +13,7 @@ local P = a:Tab("Tab Người Chơi")
 local D = a:Tab("Tab Trái")
 local R = a:Tab("Tab Tập Kích")
 local S = a:Tab("Tab Cửa Hàng")
+local O = a:Tab("Cày Cấp Nhanh")
 local Misc = a:Tab("Tab Khác")
 
 HomePage:Seperator("Light X Hub")
@@ -2624,68 +2625,6 @@ end)
             end
         end
     end)
-    
-   Main:Toggle("1 Nhấn Max Cấp",function(value)
-       _G.AutoFarm = value
-       _G.SelectWeapon = "Melee"
-       _G.Auto_Stats_Kaitun = value
-       _G.AutoSuperhuman = value
-       _G.AutoSecondSea = value
-       _G.AutoThirdSea = value
-       _G.AutoBuyLegendarySword = value
-       _G.AutoStoreFruit = value
-       _G.Random_Auto = value
-       _G.BuyAllAib = value
-       _G.BuyAllSword = value
-      StopTween(_G.AutoFarm)
-    end)
-    
-    spawn(function()
-        while wait() do
-            if _G.BuyAllSword then
-                pcall(function()
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Cutlass")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Katana")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Iron Mace")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Duel Katana")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Triple Katana")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Pipe")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Bisento")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Dual-Headed Blade")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Soul Cane")
-                    if _G.BuyHop then
-                        wait(10)
-                        Hop()
-                    end
-                end)
-            end 
-        end
-    end)
-    
-    spawn(function()
-        while wait() do
-            if _G.BuyAllAib then
-                pcall(function()
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("KenTalk","Buy")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("MuaHaki","Geppo")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("MuaHaki","Buso")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("MuaHaki","Soru")
-                    if _G.HopBuy then
-                        wait(10)
-                        Hop()
-                    end
-                end)
-            end 
-        end
-    end)
-    
-if World1 then
-	tableMon = {"Bandit","Monkey","Gorilla","Pirate","Brute","Desert Bandit","Desert Officer","Snow Bandit","Snowman","Chief Petty Officer","Sky Bandit","Dark Master","Toga Warrior","Gladiator","Military Soldier","Military Spy","Fishman Warrior","Fishman Commando","God's Guard","Shanda","Royal Squad","Royal Soldier","Galley Pirate","Galley Captain"}
-elseif World2 then
-	tableMon = {"Raider","Mercenary","Swan Pirate","Factory Staff","Marine Lieutenant","Marine Captain","Zombie","Vampire","Snow Trooper","Winter Warrior","Lab Subordinate","Horned Warrior","Magma Ninja","Lava Pirate","Ship Deckhand","Ship Engineer","Ship Steward","Ship Officer","Arctic Warrior","Snow Lurker","Sea Soldier","Water Fighter"}
-elseif World3 then
-	tableMon = {"Pirate Millionaire","Dragon Crew Warrior","Dragon Crew Archer","Female Islander","Giant Islander","Marine Commodore","Marine Rear Admiral","Fishman Raider","Fishman Captain","Forest Pirate","Mythological Pirate","Jungle Pirate","Musketeer Pirate","Reborn Skeleton","Living Zombie","Demonic Soul","Posessed Mummy","Peanut Scout","Peanut President","Ice Cream Chef","Ice Cream Commander","Cookie Crafter","Cake Guard","Baking Staff","Head Baker","Cocoa Warrior","Chocolate Bar Battler","Sweet Thief","Candy Rebel","Candy Pirate","Snow Demon","Isle Outlaw","Island Boy","Sun-kissed Warrior","Isle Champion"}
-end
 
    Main:Toggle("Đánh quái gần",_G.AutoFarmNearest,function(value)
    _G.AutoFarmNearest = value
@@ -7504,6 +7443,181 @@ spawn(function()
         end
     end
 end)
+
+O:Button("Nhập tất cả code",function()
+    function RedeemCode(value)
+        game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(value)
+    end
+    for i,v in pairs(x2Code) do
+        RedeemCode(v)
+    end
+end)
+
+--Use code
+function UseCode(Text)
+    game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(Text)
+end
+UseCode("Sub2Fer999")
+UseCode("Enyu_is_Pro")
+UseCode("Magicbus")
+UseCode("JCWK")
+UseCode("Starcodeheo")
+UseCode("Bluxxy")
+UseCode("THEGREATACE")
+UseCode("SUB2GAMERROBOT_EXP1")
+UseCode("StrawHate")
+UseCode("Sub2OfficialNoobie")
+UseCode("SUB2NOOBMASTER123")
+UseCode("Sub2Daigrock")
+UseCode("Axiore")
+UseCode("TantaiGaming")
+UseCode("Sub2UncleKizaru")
+UseCode("KITT_RESET")
+UseCode("BigNews")
+UseCode("StrawHatMaine")
+UseCode("Sub2CaptainMaui")
+UseCode("TheGreatAce")
+
+    O:Toggle("Cày cấp",_G.AutoFarm,function(value)
+        _G.AutoFarm = value
+        StopTween(_G.AutoFarm)
+        saveSettings()
+    end)
+    
+     O:Toggle("Cày Nhanh Từ lv1-300", false, function(value)
+        _G.Farmfast = value
+        StopTween(_G.Farmfast)
+    end)
+    spawn(function()
+		pcall(function()
+			while wait() do
+				if _G.Farmfast and World1 then
+					if game.Players.LocalPlayer.Data.Level.Value >= 10 then
+					    _G.AutoFarm = false
+					    _G.Farmfast = true
+					end
+				end
+			end
+		end)
+	end)
+    spawn(function()
+        while wait() do
+            if _G.Farmfast and World1 then
+                pcall(function()
+                if game.Players.LocalPlayer.Data.Level.Value >= 10 then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-7894.6176757813, 5547.1416015625, -380.29119873047))
+                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if v.Name == "Shanda" then
+                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                    repeat task.wait()
+                                        AutoHaki()
+                                        EquipWeapon(_G.SelectWeapon)
+                                        v.HumanoidRootPart.CanCollide = false
+                                        v.Humanoid.WalkSpeed = 0
+                                        StardMag = true
+                                        FastMon = v.HumanoidRootPart.CFrame
+                                        v.HumanoidRootPart.Size = Vector3.new(80,80,80)                             
+                                        ATween(v.HumanoidRootPart.CFrame * Pos)
+                                        game:GetService("VirtualUser"):CaptureController()
+                                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+                                    until not _G.Farmfast or not v.Parent or v.Humanoid.Health <= 0
+                                    StardMag = false
+                                    ATween(CFrame.new(-7678.48974609375, 5566.40380859375, -497.2156066894531))
+                                    UnEquipWeapon(_G.SelectWeapon)
+                                end
+                            end
+                        end
+                    else
+                        if game:GetService("ReplicatedStorage"):FindFirstChild("Shanda") then
+                            ATween(game:GetService("ReplicatedStorage"):FindFirstChild("Shanda").HumanoidRootPart.CFrame * CFrame.new(5,10,2))
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+    spawn(function()
+		pcall(function()
+			while wait() do
+				if _G.Farmfast and World1 then
+					if game.Players.LocalPlayer.Data.Level.Value >= 75 then
+						_G.Farmfast = false
+						_G.AutoPlayerHunter = true
+					end
+				end
+			end
+		end)
+	end)
+    spawn(function()
+		pcall(function()
+			while wait() do
+				if _G.Farmfast and World1 then
+					if game.Players.LocalPlayer.Data.Level.Value >= 200 then
+				    	_G.AutoFarm = true
+						_G.AutoPlayerHunter = false
+					end
+				end
+			end
+		end)
+	end)
+end
+    
+    O:Toggle("Tự Nâng Chỉ Số",_G.Auto_Stats_Kai,function(value)
+        _G.Auto_Stats_Kai = value
+    end)
+
+       spawn(function()
+        while wait() do
+            if _G.Auto_Stats_Kai then
+                local args = {
+                    [1] = "AddPoint",
+                    [2] = "Melee",
+                    [3] = 2550
+                }
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+            end
+        end
+    end)
+    
+    spawn(function()
+        while wait() do
+            if _G.Auto_Stats_Kai then
+                local args = {
+                    [1] = "AddPoint",
+                    [2] = "Defense",
+                    [3] = 2550
+                }       
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+            end
+        end
+    end)
+    
+    spawn(function()
+        while wait() do
+            if _G.Auto_Stats_Kai then
+                local args = {
+                    [1] = "AddPoint",
+                    [2] = "Sword",
+                    [3] =  1200
+                }
+                end
+            end
+        end)
+    
+        spawn(function()
+            while wait() do
+                if _G.Auto_Stats_Kai then
+                    local args = {
+                        [1] = "AddPoint",
+                        [2] = "Demon Fruit",
+                        [3] =  1200
+                    }
+                    end
+                end
+            end)
+            
+
+
 --Misc Esp
 Misc:Seperator("Server")
     
