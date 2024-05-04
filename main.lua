@@ -7484,7 +7484,8 @@ UseCode("TheGreatAce")
         saveSettings()
     end)
     
-     O:Toggle("Cày Cấp Nhanh Từ lv1-300",function(value)
+if World1 then
+    O:Toggle("Cày Cấp Nhanh Từ lv1-300", false, function(value)
         _G.Farmfast = value
         StopTween(_G.Farmfast)
     end)
@@ -7500,7 +7501,6 @@ UseCode("TheGreatAce")
 			end
 		end)
 	end)
-	
     spawn(function()
         while wait() do
             if _G.Farmfast and World1 then
@@ -7537,7 +7537,6 @@ UseCode("TheGreatAce")
             end
         end
     end)
-    
     spawn(function()
 		pcall(function()
 			while wait() do
@@ -7550,7 +7549,6 @@ UseCode("TheGreatAce")
 			end
 		end)
 	end)
-	
     spawn(function()
 		pcall(function()
 			while wait() do
