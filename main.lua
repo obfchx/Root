@@ -2627,7 +2627,7 @@ end)
     
    Main:Toggle("1 Nhấn Max Cấp",function(value)
        _G.AutoFarm = value
-       _G.SelectWeapon = "Combat"
+       _G.SelectWeapon = "Melee"
        _G.Auto_Stats_Kaitun = value
        _G.AutoSuperhuman = value
        _G.AutoSecondSea = value
